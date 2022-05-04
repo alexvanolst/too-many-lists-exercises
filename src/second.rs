@@ -113,6 +113,16 @@ mod test {
 
         assert_eq!(list.peek(), Some(&3));
         assert_eq!(list.peek_mut(), Some(&mut 3));
+
+
+        // Additional test to check mutability works
+        let x = list.peek_mut();
+        x.map(|y| {
+            *y += 1;
+        });
+
+        assert_eq!(list.peek(), Some(&4));
+
     }
 
     #[test]
